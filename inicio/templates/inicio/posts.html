@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Posts</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Posts
+{% endblock h1_header %}
+
+{% block main %}
+
+<p>
+    <a href={% url "crear_post" %}>Crear Post</a>
+</p>
+
+<form action="">
+    {% comment %} <input type="text" name="marca" placeholder="Wilson, Head..."> {% endcomment %}
+    {{formulario}}
+    <input type="submit" value="Buscar">
+</form>
+
+{% if listado_de_posts %}
+<ul>
+    {% for post in listado_de_posts %}
+    <li>{{post}} | <a href={% url "actualizar_post" post.id %}>Actualizar</a> | <a href={% url "eliminar_post" post.id %}>Eliminar</a> | <a href={% url "detalle_post" post.id %}>Detalle</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron Posts.</p>
+{% endif %}
+
+{% endblock main %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Crear Post</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Crear Post
+{% endblock h1_header %}
+
+{% block main %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{formulario.media}}
+        {{formulario}}
+    </table>
+    <input type="submit" value="Crear">
+</form>
+
+{% endblock main %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Post {{post.id}}</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Post {{post.id}}
+{% endblock h1_header %}
+
+{% block main %}
+
+<ul>
+    <li>Artista: {{post.artista}}</li>
+    <li>Tour: {{post.tour}}</li>
+    <li>Fecha: {{post.fecha}}</li>
+    <li>Descripción: {{post.descripcion | safe }}</li>
+    {% if post.attachment %}
+        <li>Attachment: <img src="{{ post.attachment.url }}" alt="Imagen del post"></li>
+    {% else %}
+        <li>No hay archivo adjunto</li>
+    {% endif %}
+</ul>
+
+{% endblock main %}
