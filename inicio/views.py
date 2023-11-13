@@ -20,7 +20,7 @@ def posts(request):
 @login_required
 def crear_post(request):
     if request.method == 'POST':
-        formulario = CrearPostFormulario(request.POST)
+        formulario = CrearPostFormulario(request.POST,request.FILES)
         if formulario.is_valid():
             info_limpia = formulario.cleaned_data
             
@@ -52,7 +52,7 @@ def actualizar_post(request, post_id):
     post_a_actualizar = Post.objects.get(id=post_id)
     
     if request.method == "POST":
-        formulario = ActualizarPostFormulario(request.POST)
+        formulario = ActualizarPostFormulario(request.POST,request.FILES)
         if formulario.is_valid():
             info_nueva = formulario.cleaned_data
             
