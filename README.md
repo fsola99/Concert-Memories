@@ -2,7 +2,7 @@
 
 ## Descripción del Proyecto
 
-Concert Memories es una plataforma web dedicada a compartir recuerdos de conciertos musicales. Este proyecto fue creado como parte de la entrega final del curso de Python y nació de mi pasión por la música.
+Concert Memories es una plataforma web dedicada a compartir recuerdos de conciertos musicales. Este proyecto fue creado como parte de la entrega final del curso de Python en Coderhouse y nació de mi pasión por la música.
 
 ## Funcionalidades
 
@@ -86,3 +86,7 @@ Además, los usuarios pueden revisar su bandeja de entrada para ver los mensajes
 3. Realiza tus cambios y haz commit: `git commit -m 'Añade nueva característica'`.
 4. Haz push a la rama: `git push origin feature/nueva-caracteristica`.
 5. Abre un pull request.
+
+---
+
+**Proyecto desarrollado por Federico Sola.**
