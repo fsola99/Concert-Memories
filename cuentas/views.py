@@ -65,17 +65,18 @@ def editar_perfil(request):
             datos_extra.save()
             formulario.save()
             
-            return redirect('editar_perfil')
+            pk_usuario = request.user.pk
+
+            url_perfil = reverse_lazy('perfil', kwargs={'pk': pk_usuario})
+            return redirect(url_perfil)
     
     return render(request, 'cuentas/editar_perfil.html', {'formulario': formulario})
 
-# class CambiarPassword(PasswordChangeView):
-#     template_name = 'cuentas/cambiar_password.html'
-#     success_url = reverse_lazy('editar_perfil')
-
 class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'cuentas/cambiar_password.html'
-    success_url = reverse_lazy('editar_perfil')
+    def get_success_url(self):
+        pk_usuario = self.request.user.pk
+        return reverse_lazy('perfil', kwargs={'pk': pk_usuario})
     
 class MostrarPerfil(LoginRequiredMixin, DetailView):
     model = DatosExtra

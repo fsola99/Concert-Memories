@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'inicio',
     'cuentas',
     'about',
+    'mensajes',
     'ckeditor'
 ]
 

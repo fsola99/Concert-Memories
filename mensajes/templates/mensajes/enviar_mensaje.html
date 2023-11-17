@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Enviar mensajes</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Enviar mensajes
+{% endblock h1_header %}
+
+{% block main %}
+  <h2>Enviar Mensaje a {{ receptor.username }}</h2>
+  <form method="post" action="">
+    {% csrf_token %}
+    <label for="contenido">Contenido:</label><br>
+    <textarea name="contenido" rows="4" cols="50"></textarea><br>
+    <input type="submit" value="Enviar">
+  </form>
+{% endblock main %}

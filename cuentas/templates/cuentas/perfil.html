@@ -17,7 +17,9 @@ Perfil de {{ user.username }}
         <li>Nombre: {{user.first_name}}</li>
         <li>Apellido: {{user.last_name}}</li>
         <li>Biografía: {{ request.user.datosextra.biografia }}</li>
-        <li>Avatar: <img src={{ request.user.datosextra.avatar.url }} alt="Avatar"></li>
+        {% if request.user.datosextra.avatar %}
+            <li>Avatar: <img src="{{ request.user.datosextra.avatar.url }}" alt="Avatar"></li>
+        {% endif %}
     </ul>
 
     <!-- Agrega el botón para editar el perfil -->

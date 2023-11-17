@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Bandeja de entrada</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Bandeja de entrada
+{% endblock h1_header %}
+
+{% block main %}
+  <h2>Mensajes Recibidos</h2>
+  {% if mensajes %}
+    <ul>
+      {% for mensaje in mensajes %}
+        <li>{{ mensaje.emisor.username }} - {{ mensaje.fecha_envio }}: {{ mensaje.contenido }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No tienes mensajes recibidos.</p>
+  {% endif %}
+
+  <a href="{% url 'lista_usuarios' %}">
+    <button type="button">Enviar Mensaje</button>
+  </a>
+
+{% endblock main %}

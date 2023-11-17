@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Lista de usuarios</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Lista de usuarios
+{% endblock h1_header %}
+
+{% block main %}
+  <h2>Lista de Usuarios</h2>
+  <ul>
+    {% for usuario in usuarios %}
+      <li><a href="{% url 'enviar_mensaje' receptor_id=usuario.id %}">{{ usuario.username }}</a></li>
+    {% endfor %}
+  </ul>
+  
+{% endblock main %}
