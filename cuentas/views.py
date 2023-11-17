@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login as django_login
 from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.views.generic import DetailView
 
 from cuentas.forms import MiFormularioDeCreacion, EdicionPerfil
 from cuentas.models import DatosExtra
@@ -67,6 +69,14 @@ def editar_perfil(request):
     
     return render(request, 'cuentas/editar_perfil.html', {'formulario': formulario})
 
-class CambiarPassword(PasswordChangeView):
+# class CambiarPassword(PasswordChangeView):
+#     template_name = 'cuentas/cambiar_password.html'
+#     success_url = reverse_lazy('editar_perfil')
+
+class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'cuentas/cambiar_password.html'
     success_url = reverse_lazy('editar_perfil')
+    
+class MostrarPerfil(LoginRequiredMixin, DetailView):
+    model = DatosExtra
+    template_name = 'cuentas/perfil.html'
