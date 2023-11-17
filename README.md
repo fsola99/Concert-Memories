@@ -28,6 +28,17 @@ Los usuarios de Concert Memories pueden registrarse y editar su perfil con la si
 
 Estos detalles permiten a los usuarios personalizar su experiencia en la plataforma y compartir sus recuerdos de conciertos de manera única.
 
+### Mensajería
+
+Ahora, los usuarios pueden utilizar la funcionalidad de mensajería en Concert Memories. Pueden ver la lista de usuarios de la plataforma y enviar mensajes con la siguiente estructura:
+
+- **Emisor:** Nombre del usuario que envía el mensaje.
+- **Receptor:** Nombre del usuario destinatario del mensaje.
+- **Contenido:** Texto del mensaje.
+- **Fecha de Envío:** Fecha en que se envió el mensaje.
+
+Además, los usuarios pueden revisar su bandeja de entrada para ver los mensajes recibidos.
+
 **Nota:** Para obtener instrucciones detalladas sobre cómo instalar y ejecutar Concert Memories, consulta la sección de [Instalación](#instalación) en este README.
 
 ## Instalación
