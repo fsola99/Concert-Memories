@@ -6,6 +6,8 @@ Concert Memories es una plataforma web dedicada a compartir recuerdos de concier
 
 ## Funcionalidades
 
+Explicación en video: https://www.youtube.com/watch?v=gRo1TnnW0fE
+
 ### Crear, Actualizar y Eliminar Posts
 
 Concert Memories permite a los usuarios compartir sus recuerdos de conciertos mediante la creación, actualización y eliminación de posts. Cada post contiene información detallada sobre el concierto, incluyendo:
