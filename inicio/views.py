@@ -52,23 +52,13 @@ def actualizar_post(request, post_id):
     post_a_actualizar = Post.objects.get(id=post_id)
     
     if request.method == "POST":
-        formulario = ActualizarPostFormulario(request.POST,request.FILES)
+        formulario = ActualizarPostFormulario(request.POST, request.FILES, instance=post_a_actualizar)
         if formulario.is_valid():
-            info_nueva = formulario.cleaned_data
-            
-            post_a_actualizar.artista = info_nueva.get('artista')
-            post_a_actualizar.tour = info_nueva.get('tour')
-            post_a_actualizar.fecha = info_nueva.get('fecha')
-            post_a_actualizar.descripcion = info_nueva.get('descripcion')
-            post_a_actualizar.attachment = info_nueva.get('attachment')
-            
-            post_a_actualizar.save()
+            formulario.save()
             return redirect('posts')
-        else:
-            return render(request, 'inicio/actualizar_posts.html', {'formulario': formulario})
-    
-    
-    formulario = ActualizarPostFormulario(initial={'artista': post_a_actualizar.artista, 'tour': post_a_actualizar, 'fecha': post_a_actualizar.fecha,'descripcion': post_a_actualizar.descripcion,'attachment': post_a_actualizar.attachment})
+    else:
+        formulario = ActualizarPostFormulario(instance=post_a_actualizar)
+
     return render(request, 'inicio/actualizar_post.html', {'formulario': formulario})
 
 def detalle_post(request, post_id):
