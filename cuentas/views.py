@@ -9,6 +9,7 @@ from django.views.generic import DetailView
 from cuentas.forms import MiFormularioDeCreacion, EdicionPerfil
 from cuentas.models import DatosExtra
 
+from django.contrib.auth.models import User
 
 def login(request):
     
@@ -79,5 +80,6 @@ class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
         return reverse_lazy('perfil', kwargs={'pk': pk_usuario})
     
 class MostrarPerfil(LoginRequiredMixin, DetailView):
-    model = DatosExtra
+    model = User
     template_name = 'cuentas/perfil.html'
+    context_object_name = 'user'

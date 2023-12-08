@@ -13,12 +13,12 @@ Perfil de {{ user.username }}
     <!-- Muestra los detalles del perfil -->
 
     <ul>
-        <li>Correo: {{user.email}}</li>
-        <li>Nombre: {{user.first_name}}</li>
-        <li>Apellido: {{user.last_name}}</li>
-        <li>Biografía: {{ request.user.datosextra.biografia }}</li>
-        {% if request.user.datosextra.avatar %}
-            <li>Avatar: <img src="{{ request.user.datosextra.avatar.url }}" alt="Avatar"></li>
+        <li>Correo: {{ user.email }}</li>
+        <li>Nombre: {{ user.first_name }}</li>
+        <li>Apellido: {{ user.last_name }}</li>
+        <li>Biografía: {{ user.datosextra.biografia }}</li>
+        {% if user.datosextra.avatar %}
+            <li>Avatar: <img src="{{ user.datosextra.avatar.url }}" alt="Avatar"></li>
         {% endif %}
     </ul>
 
